@@ -24,6 +24,11 @@ public class OrderService {
 	@Autowired
 	private ProductRepository productRepository;
 	
+	public List<Order> fetchAll() {
+		// TODO Auto-generated method stub
+		return this.orderRepository.findAll();
+	}
+	
 	public Order addOrder(String userid, String prodid) {
 		// TODO Auto-generated method stub
 		Order order = new Order(userid+prodid,prodid,userid,"","");

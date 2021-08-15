@@ -29,8 +29,16 @@ public class OrderController {
 	@Autowired
 	private OrderService orderService;
 
-	@GetMapping("/get/{userid}")
+	
+	@GetMapping("/fetchAll")
+	public ResponseEntity<?> fetchAll() {
 
+		List<Order> optional = orderService.fetchAll();
+		return ResponseEntity.ok(optional);
+
+	}
+
+	@GetMapping("/get/{userid}")
 	public ResponseEntity<?> getItems(@PathVariable("userid") String userId) {
 
 		List<Product> optional = orderService.getItems(userId);

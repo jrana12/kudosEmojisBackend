@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.db.kudosEmojis.dto.Order;
 import com.db.kudosEmojis.dto.User;
 import com.db.kudosEmojis.service.UserService;
 
@@ -21,6 +22,14 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@GetMapping("/user/fetchAll")
+	public ResponseEntity<?> fetchAll() {
+
+		List<User> optional = userService.fetchAll();
+		return ResponseEntity.ok(optional);
+
+	}
 	@PostMapping("/updateUser")
 	public ResponseEntity<?> createEmployee(@RequestBody User user){
 		userService.addUser(user);

@@ -4,8 +4,8 @@ It can be used internally in a company or organization where points are earned t
 
 ## Entities
 **Order** {
-String orderId;
-String prodId;
+String orderId;  
+String prodId;  
 String userId;
 String status;
 String date;
